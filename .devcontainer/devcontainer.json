@@ -1,0 +1,25 @@
+{
+  "name": "MbedOS Build Environment",
+  "dockerFile": "Dockerfile",
+  "build": {
+    "platform": "linux/amd64"
+  },
+  "features": {
+    "ghcr.io/devcontainers/features/python:1": {
+      "version": "3.11"
+    }
+  },
+  "mounts": [
+    "source=${localWorkspaceFolder},target=/workspace,type=bind"
+  ],
+  "workspaceFolder": "/workspace",
+  "postCreateCommand": "pip install --upgrade pip && pip install mbed-cli",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-vscode.cpptools"
+      ]
+    }
+  }
+}
